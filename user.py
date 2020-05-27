@@ -36,6 +36,16 @@ def pressed_spacebar(event, key_pressed):
         key_pressed[pygame.K_SPACE]
         )
 
+def pressed_a(event, key_pressed, key_mods):
+    '''Return True when "a" is pressed.'''
+    return (
+        event.type == pygame.KEYDOWN
+        and
+        key_pressed[pygame.K_a]
+        and not
+        held_Shift(key_mods)
+        )
+
 def pressed_right(event, key_pressed, key_mods):
     '''Return True when l is pressed.'''
     return (
