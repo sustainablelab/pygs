@@ -13,7 +13,7 @@ $ pip install setuptools
 And running the `setup.py` script with the `develop` command:
 
 ```bash
-$ python script.py develop
+$ python setup.py develop
 ```
 
 This is like `pip install`, but it places a symbolic link in the

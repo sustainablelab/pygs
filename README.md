@@ -26,11 +26,23 @@ Developed on Windows using Python3.8 and `pygame 1.9.6`.
 
 Install the `wheel` ([built
 distribution](https://packaging.python.org/glossary/#term-built-distribution))
-with `pip`:
+with `pip`.
+
+Install `pygame` first:
+
+```bash
+$ pip install pygame
+```
+
+Then install `pygs`:
 
 ```bash
 $ pip install pygs
 ```
+
+Attempting to install `pygs` first, `pip` will try and fail
+installing `pygame`. If this happens, just go ahead and `pip
+install pygame`, then try `pip install pygs` again.
 
 # Quick example script using `pygs`
 
