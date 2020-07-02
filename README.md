@@ -20,54 +20,17 @@ I am **very actively** adding to `pygs`. Check for changes:
 - or if installed, update to the latest with `pip install --upgrade pygs`
 
 # Platform compatibility
-I'm using Python3.8 and `pygame 1.9.6`. I've only tested on
-Windows, but everything in `pygs` should be cross-platform. I
-plan to test on Linux Mint.
+Developed on Windows using Python3.8 and `pygame 1.9.6`.
 
 # Installation
 
-## pip install
-Install the `wheel` (PyPI binary) with `pip`:
+Install the `wheel` ([built
+distribution](https://packaging.python.org/glossary/#term-built-distribution))
+with `pip`:
 
 ```bash
 $ pip install pygs
 ```
-
-## or clone repo in `USER_SITE`
-**clone this repository in `USER_SITE`.** This makes the
-package visible to Python *without needing to edit `PYTHONPATH`*.
-
-`USER_SITE` is different for every Python installation.
-
-Find the `USER_SITE` path with:
-
-```bash
-$ python -m site --user-site
-```
-
-(Create the `USER_SITE` path if it does not exist.)
-
-## or clone repo anywhere and run setup.py develop
-**install from your repository clone** by installing
-`setuptools`:
-
-```bash
-$ pip install setuptools
-```
-
-And running the `setup.py` script with the `develop` command:
-
-```bash
-$ python script.py develop
-```
-
-This is like `pip install`, but it places a symbolic link in the
-Python install folder instead of placing the actual project files
-in the Python install folder.
-
-Use this installation method if you plan to modify `pygs`. This
-way any changes to your local repository are picked up without
-having to reinstall `pygs`.
 
 # Quick example script using `pygs`
 
@@ -114,7 +77,7 @@ if __name__ == '__main__':
 
 # Libraries
 
-## Class Window
+## pkg window: Class Window
 
 Wraps `pygame.display.set_mode()`, pulling several pygame calls
 into two methods: `__init__` and `open`.
@@ -125,7 +88,7 @@ singleton holds:
 - the top-level **`pygame` surface** (for drawing everything on)
 - the *width* and *height* of the main game window
 
-### Using Window
+### Usage for Window
 
 Instantiate a Window:
 
@@ -151,11 +114,12 @@ win.open()
     - this is just pygame's out-of-the-box behavior for closing
       the game window
 
-## Class Clock
+## pkg clock: Class Clock
 
 This is a very simple wrapper around `pygame.time.Clock()`. All
 it does is avoid repeating the framerate value.
 
+### Usage for Clock
 Set the framerate when Clock() is instantiated:
 
 ```python
@@ -168,7 +132,7 @@ Then in the game loop, tick the `clock`:
 clock.tick()
 ```
 
-## colors: Namedtuple RGB and HEX
+## pkg colors
 Color is a distraction when I first start development on
 an application. I want nice contrast that is also easy on my eyes
 and is good enough if I never bother changing it.
@@ -179,6 +143,7 @@ default scheme for my applications. It is just what I am used to
 looking at. I encourage Vim users to do something similar with
 their favorite color schemes.
 
+### Usage for colors namedtuple RGB
 Pygame uses RGB. Instantiate an `rgb` version of the Badwolf
 palette:
 
@@ -239,83 +204,7 @@ White (255, 255, 255) is `snow`:
 rgb.snow
 ```
 
-## user interaction
-
-Pygame user interaction is detected via key-presses and events.
-Library `user` is a collection of functions that check for common
-user interactions and return a Boolean.
-
-### pygame events, key presses, and key modifications
-Typical pygame applications check for user interaction on each
-iteration of the game loop:
-
-```python
-for event in pygame.event.get():
-    kp = pygame.key.get_pressed()
-    km = pygame.key.get_mods()
-```
-
-This stores user interaction in three variables:
-
-- events
-- key presses (like a letter or a number)
-- key modifications (like shift or control)
-
-Every function in `pygs.user` takes all three of these variables. I
-pass all three to simplify the interface. I don't want to bother
-thinking about out which ones to pass.
-
-### quit is a typical example
-For example, every application needs a way for the user to quit.
-The game loop loops until `quit` is True, and every iteration
-checks if the user quit. The value of `quit` is updated by
-calling `pygs.user.quit()`:
-
-```python
-quit = pygs.user.quit(event, kp, km)
-```
-
-In this case, all three variables are actually used:
-
-- clicking the Window's red X is an event
-- ctrl-q is a keyboard shortcut requiring `kp` for detecting `q` and `km` for detecting if `ctrl` was held down
-
-### pygame events
-Events are the catch-all for everything else:
-
-- some events are defined by pygame, such as JOYBUTTONDOWN and
-  JOYAXISMOTION
-- events are also defined by the developer, e.g., a text-entry
-  object might trigger an event when the user presses enter or
-  when the users selects text with the mouse
-
-### goals for the `user` library
-There is a lot of boilerplate in detecting specific key-presses
-and events.
-
-The `user` library is my attempt to simplify this with a
-higher-level view asking "what did the user do?" in the form of
-functions that return either True or False.
-
-There are many high-level views. This library just represents the
-stuff I find most useful.
-
-I intent to redo this library to enable:
-
-- customization in the application code
-- use of user-specific keyboard shortcuts, like a `.rc` file
-
-As of now, the library is a mixture of high-level user
-interaction, such as pygs.user.quit(), and low-level interaction
-such as checking for specific key presses. I use these when the
-interpretation of user-intent is application specific. For
-example, this returns True if the user presses capital x:
-
-```python
-pygs.user.pressed_X(event, key_pressed, key_mods)
-```
-
-## plot
+## pkg plot
 
 `plot` handles:
 
@@ -344,9 +233,86 @@ managing multiple plot lines, changing plot styles (colors,
 line-thickness, dot-size, line on/off, dot on/off), and typical
 user interaction such as changing the plot axes and zooming.
 
-## WIP libraries
+## pkg user
 
-### lines
+Pygame user interaction is detected via key-presses and events.
+Library `user` is a collection of functions that check for common
+user interactions and return a Boolean.
+
+### About pygame events, key presses, and key modifications
+Typical pygame applications check for user interaction on each
+iteration of the game loop:
+
+```python
+for event in pygame.event.get():
+    kp = pygame.key.get_pressed()
+    km = pygame.key.get_mods()
+```
+
+This stores user interaction in three variables:
+
+- events
+- key presses (like a letter or a number)
+- key modifications (like shift or control)
+
+Every function in `pygs.user` takes all three of these variables. I
+pass all three to simplify the interface. I don't want to bother
+thinking about out which ones to pass.
+
+### typical example: quit
+For example, every application needs a way for the user to quit.
+The game loop loops until `quit` is True, and every iteration
+checks if the user quit. The value of `quit` is updated by
+calling `pygs.user.quit()`:
+
+```python
+quit = pygs.user.quit(event, kp, km)
+```
+
+In this case, all three variables are actually used:
+
+- clicking the Window's red X is an event
+- ctrl-q is a keyboard shortcut requiring `kp` for detecting `q` and `km` for detecting if `ctrl` was held down
+
+### More about pygame events
+Events are the catch-all for everything else:
+
+- some events are defined by pygame, such as JOYBUTTONDOWN and
+  JOYAXISMOTION
+- events are also defined by the developer, e.g., a text-entry
+  object might trigger an event when the user presses enter or
+  when the users selects text with the mouse
+
+## Future packages
+
+### Future goals for pkg user
+There is a lot of boilerplate in detecting specific key-presses
+and events.
+
+The `user` library is my attempt to simplify this with a
+higher-level view asking "what did the user do?" in the form of
+functions that return either True or False.
+
+There are many high-level views. This library just represents the
+stuff I find most useful.
+
+I intent to redo this library to enable:
+
+- customization in the application code
+- use of user-specific keyboard shortcuts, like a `.rc` file
+
+As of now, the library is a mixture of high-level user
+interaction, such as pygs.user.quit(), and low-level interaction
+such as checking for specific key presses. I use these when the
+interpretation of user-intent is application specific. For
+example, this returns True if the user presses capital x:
+
+```python
+pygs.user.pressed_X(event, key_pressed, key_mods)
+```
+
+
+### new pkg lines
 
 The `pygame` line drawing interfaces specifies line segments with
 a start x,y and a stop x,y.
