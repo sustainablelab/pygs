@@ -44,7 +44,7 @@ Attempting to install `pygs` first, `pip` will try and fail
 installing `pygame`. If this happens, just go ahead and `pip
 install pygame`, then try `pip install pygs` again.
 
-See [](AltInstallation.md) for developer installation
+See [AltInstallallation.md](AltInstallation.md) for developer installation
 ('--editable') or simply editing PYTHONPATH (no installation).
 
 # Quick example script using `pygs`
