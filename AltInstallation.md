@@ -1,24 +1,34 @@
-# Clone repo and run setup.py develop
-Use this installation method if you plan to modify `pygs`. This
-way any changes to your local repository are picked up without
-having to reinstall `pygs`.
+# Clone repo and install project in editable mode
+Use this installation method if you plan to modify or develop
+`pygs` (which is likely given the *Development Status* of
+`pygs`). This way any changes to your local repository are picked
+up without having to reinstall `pygs`.
 
-**install from your repository clone** by installing
-`setuptools`:
-
-```bash
-$ pip install setuptools
-```
-
-And running the `setup.py` script with the `develop` command:
+**install from your repository clone** by using the `-e` flag:
 
 ```bash
-$ python setup.py develop
+$ cd repoclone/
+$ pip install -e .
 ```
+
+The `-e` is `--editable` and the `.` is the path to the project
+folder that has the `setup.py` file (`.` means present working
+directory).
 
 This is like `pip install`, but it places a symbolic link in the
 Python install folder instead of placing the actual project files
-in the Python install folder.
+in the Python install folder:
+
+```bash
+$ pip show PACKAGENAME
+```
+
+See how the `Location` field shows the local repository path
+rather than the usual `site-packages` install path.
+
+This means that edits to the source code are immediately
+reflected in the behavior of the package, without having to
+reinstall.
 
 # Clone repo and add foo/pygs to PYTHONPATH
 

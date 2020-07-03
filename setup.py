@@ -10,7 +10,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pygs", # no dashes in name!
-    version="0.0.1", # must increment this to re-upload
+    version="0.0.2", # must increment this to re-upload
     author="Mike Gazes",
     author_email="sustainablelab@gmail.com",
     description="PYGame Stuff for writing pygame applications",
@@ -22,10 +22,16 @@ setuptools.setup(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
+        "Development Status :: 1 - Planning",
+        "Intended Audience :: Developers",
+        "Topic :: Scientific/Engineering",
+        "Topic :: Software Development :: User Interfaces",
+        "Topic :: Software Development :: Libraries :: pygame",
     ],
     python_requires='>=3.6',
-
     install_requires=[
         "pygame",
-        ]
+        ],
+    license='MIT', # field in *.egg-info/PKG-INFO
+    platforms=['Windows'], # legacy field in *.egg-info/PKG-INFO
 )
