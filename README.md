@@ -1,6 +1,16 @@
 `pygstuff` is a Python package to simplify developing with pygame.
 
-Import `pygstuff` as `pygs` (pronounced "pigs").
+Install:
+
+```bash
+$ pip install pygstuff
+```
+
+Import `pygstuff` as `pygs` (pronounced "pigs"):
+
+```python
+>>> import pygstuff as pygs
+```
 
 # `pygstuff` is a pygame wrapper under development
 `pygame` is a great low-level tool for interactive applications.
@@ -19,25 +29,15 @@ Developed on Windows using Python3.8 and `pygame 1.9.6`.
 
 # Installation
 
-Install the `wheel` ([built
-distribution](https://packaging.python.org/glossary/#term-built-distribution))
-with `pip`.
-
-Install `pygame` first:
-
-```bash
-$ pip install pygame
-```
-
-Then install `pygstuff`:
-
 ```bash
 $ pip install pygstuff
 ```
 
-Attempting to install `pygstuff` first, `pip` will try and fail
-installing `pygame`. If this happens, just go ahead and `pip
-install pygame`, then try `pip install pygstuff` again.
+This installs the `wheel` ([built
+distribution](https://packaging.python.org/glossary/#term-built-distribution)).
+
+`pygstuff` requires `pygame`. If `pygame` is not installed, `pip
+install pygstuff` takes care of installing `pygame` as well.
 
 See [AltInstallallation.md](AltInstallation.md) for developer installation
 ('--editable') or simply editing PYTHONPATH (no installation).
