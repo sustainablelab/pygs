@@ -1,23 +1,18 @@
-`pygs` is a Python package to simplify developing with pygame.
+`pygstuff` is a Python package to simplify developing with pygame.
 
-Pronounced "pigs", short for PYGame Stuff.
+Import `pygstuff` as `pygs` (pronounced "pigs").
 
-# Why `pygs`
-`pygame` is a low-level tool for interactive applications.
-Low-level is great, but it means lots of boiler-plate code.
-`pygs` makes pygame applications a little bit higher-level.
+# `pygstuff` is a pygame wrapper under development
+`pygame` is a great low-level tool for interactive applications.
+Low-level means lots of freedom, but lots of boiler-plate code.
 
-I did not set out to write a pygame wrapper. `pygs` is
+`pygstuff` makes pygame applications a little bit higher-level. It is
 where my pygame code goes when I get tired of repeating it.
 
-I started `pygs` to aid in hobby projects where it lived happily
-in my `USER_SITE`. Then I started using `pygs` for work and I
-needed a way to share it with customers.
+I am **very actively** adding to `pygstuff`. Check for changes:
 
-I am **very actively** adding to `pygs`. Check for changes:
-
-- if cloned locally, do `git remote update`
-- or if installed, update to the latest with `pip install --upgrade pygs`
+- if cloned, do `git remote update`
+- or if installed, update to the latest with `pip install --upgrade pygstuff`
 
 # Platform compatibility
 Developed on Windows using Python3.8 and `pygame 1.9.6`.
@@ -34,20 +29,20 @@ Install `pygame` first:
 $ pip install pygame
 ```
 
-Then install `pygs`:
+Then install `pygstuff`:
 
 ```bash
-$ pip install pygs
+$ pip install pygstuff
 ```
 
-Attempting to install `pygs` first, `pip` will try and fail
+Attempting to install `pygstuff` first, `pip` will try and fail
 installing `pygame`. If this happens, just go ahead and `pip
-install pygame`, then try `pip install pygs` again.
+install pygame`, then try `pip install pygstuff` again.
 
 See [AltInstallallation.md](AltInstallation.md) for developer installation
 ('--editable') or simply editing PYTHONPATH (no installation).
 
-# Quick example script using `pygs`
+# Quick example script using `pygstuff`
 
 This example opens a window and draws a line. Quit by pressing
 `q` or by clicking on the usual Window close button to quit.
@@ -57,7 +52,7 @@ This example opens a window and draws a line. Quit by pressing
 # -*- coding: utf-8 -*-
 '''Draw a line with pygame.'''
 import pygame
-import pygs
+import pygstuff as pygs
 
 if __name__ == '__main__':
     rgb = pygs.RGB()

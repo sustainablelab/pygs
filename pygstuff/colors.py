@@ -7,7 +7,7 @@ Example
 >>> import pygame
 pygame 1.9.6
 Hello from the pygame community. https://www.pygame.org/contribute.html
->>> import pygs
+>>> import pygstuff as pygs
 >>> hex_color = pygs.HEX()
 >>> hex_color.tardis
 '#0a9dff'
@@ -15,7 +15,7 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 Example
 -------
 >>> import pygame
->>> import pygs
+>>> import pygstuff as pygs
 >>> rgb_color = pygs.RGB()
 >>> rgb_color.tardis
 (10, 157, 255)

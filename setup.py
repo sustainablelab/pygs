@@ -9,14 +9,14 @@ with open("README.md", "r", encoding="utf-8") as fh:
 # utf-8 encoding is for tree symbols: └─, ├─, etc.
 
 setuptools.setup(
-    name="pygs", # no dashes in name!
+    name="pygstuff", # do not use dashes or underscores in names!
     version="0.0.1", # must increment this to re-upload
     author="Mike Gazes",
     author_email="sustainablelab@gmail.com",
     description="PYGame Stuff for writing pygame applications",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/sustainablelab/pygs",
+    url="https://github.com/sustainablelab/pygstuff",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

@@ -16,7 +16,7 @@ class Window(object):
     Example
     -------
     >>> import pygame
-    >>> import pygs
+    >>> import pygstuff as pygs
     >>> win=pygs.Window()
     >>> win.open_window(400,100)
     >>> import time

@@ -14,7 +14,7 @@ class Clock(object):
 
     Example: setup
     -------
-    >>> import pygs # assume pygame already imported
+    >>> import pygstuff as pygs # assume pygame already imported
     >>> clock = pygs.Clock(framerate=50)
 
     Usage: loop

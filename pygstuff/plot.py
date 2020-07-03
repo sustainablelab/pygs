@@ -38,7 +38,7 @@ def _strings_from_data_columns(filepath) -> list:
     >>> filepath = Path('plot-example-data/_xy_data.txt')
 
     Read the data as strings.
-    >>> import pygs
+    >>> import pygstuff as pygs
     >>> data = pygs.plot._strings_from_data_columns(filepath)
 
     It is data for an XY plot. Expect two columns.

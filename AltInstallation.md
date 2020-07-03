@@ -1,20 +1,20 @@
 # Clone repo and install project in editable mode
 Use this installation method if you plan to modify or develop
-`pygs` (which is likely given the *Development Status* of
-`pygs`). This way any changes to your local repository are picked
-up without having to reinstall `pygs`.
+`pygstuff` (which is likely given the *Development Status* of
+`pygstuff`). This way any changes to your local repository are picked
+up without having to reinstall `pygstuff`.
 
 **install from your repository clone** by using the `-e` flag.
 
-Enter the `pygs` project folder:
+Enter the `pygstuff` project folder:
 
 ```bash
-$ cd foo/pygs
+$ cd foo/pygstuff
 ```
 
-*`foo` is whatever directory `pygs` was cloned in*
+*`foo` is whatever directory `pygstuff` was cloned in*
 
-And install `pygs` in *editable* mode:
+And install `pygstuff` in *editable* mode:
 
 ```bash
 $ pip install -e .
@@ -23,7 +23,7 @@ $ pip install -e .
 - the `-e` is short for `--editable`
 - the `.` is the path to the project folder
     - (`.` means present working directory)
-    - pip finds the `setup.py` file in the `pygs` project folder
+    - pip finds the `setup.py` file in the `pygstuff` project folder
     - the project folder is the present working directory
 
 This is like `pip install`, but it places a *symbolic link* in
@@ -32,19 +32,19 @@ the Python install folder *instead of the actual project files*.
 Check this with `pip show` command:
 
 ```bash
-$ pip show pygs
+$ pip show pygstuff
 ```
 
 See how the `Location` field shows the local repository path
 rather than the usual `site-packages` install path.
 
 This means that edits to the source code are immediately
-reflected on the next `import pygs`, without having to reinstall
+reflected on the next `import pygstuff`, without having to reinstall
 the package.
 
-# Clone repo and add foo/pygs to PYTHONPATH
+# Clone repo and add foo/pygstuff to PYTHONPATH
 
-If cloning into directory `foo`, add `foo/pygs` to the
+If cloning into directory `foo`, add `foo/pygstuff` to the
 PYTHONPATH.
 
 ## Edit PYTHONPATH on Windows
@@ -53,7 +53,7 @@ On Windows, add to the PYTHONPATH for the rest of the PowerShell
 session:
 
 ```powershell
-> $env:PYTHONPATH += "path_to_foo\pygs;"
+> $env:PYTHONPATH += "path_to_foo\pygstuff;"
 ```
 
 Apply this change to every PowerShell session by putting the
@@ -64,13 +64,13 @@ above line in the PowerShell Profile.
 In a pure POSIX environment (Linux), add to the PYTHONPATH with:
 
 ```bash
-$ PYTHONPATH+="path_to_foo/pygs:"
+$ PYTHONPATH+="path_to_foo/pygstuff:"
 ```
 
 Or apply to every `bash` session by editing the ~/.bashrc:
 
 ```bash
-PYTHONPATH+="path_to_foo/pygs:"
+PYTHONPATH+="path_to_foo/pygstuff:"
 export PYTHONPATH
 ```
 
@@ -89,18 +89,18 @@ and Windows (path splitter ; vs : and slash direction \ vs /), so
 editing PYTHONPATH in the Cygwin `.bashrc` just mangles PYTHONPATH
 and makes it unusable by either Python installation.
 
-## Why the path is foo/pygs
+## Why the path is foo/pygstuff
 
 The way this works is that Python looks in the folders in
 PYTHONPATH for a folder containing an `__init__.py`. The
-`__init__.py` is in `pygs/pygs`. The first `pygs` is the PyPI
-project name, the second `pygs` is the package name. So adding
-`foo/pygs` to the PYTHONPATH, Python looks in the `pygs` project
-folder and finds the `pygs` package folder.
+`__init__.py` is in `pygstuff/pygstuff`. The first `pygstuff` is the PyPI
+project name, the second `pygstuff` is the package name. So adding
+`foo/pygstuff` to the PYTHONPATH, Python looks in the `pygstuff` project
+folder and finds the `pygstuff` package folder.
 
-## Clone into USERSITE and add USERSITE/pygs to PYTHONPATH
+## Clone into USERSITE and add USERSITE/pygstuff to PYTHONPATH
 
-Add `USERSITE/pygs` to the PYTHONPATH variable (replacing
+Add `USERSITE/pygstuff` to the PYTHONPATH variable (replacing
 USERSITE with the actual USERSITE path).
 
 `USERSITE` is different for every Python installation.

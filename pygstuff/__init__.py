@@ -1,6 +1,6 @@
 '''Support for developing with pygame.
 
-Pronounce "pygs" as "pigs". It is short for PYGame Stuff.
+Import pygstuff as pygs (pronounced "pigs").
 '''
 
 from .window import Window
