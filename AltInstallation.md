@@ -4,31 +4,43 @@ Use this installation method if you plan to modify or develop
 `pygs`). This way any changes to your local repository are picked
 up without having to reinstall `pygs`.
 
-**install from your repository clone** by using the `-e` flag:
+**install from your repository clone** by using the `-e` flag.
+
+Enter the `pygs` project folder:
 
 ```bash
-$ cd repoclone/
+$ cd foo/pygs
+```
+
+*`foo` is whatever directory `pygs` was cloned in*
+
+And install `pygs` in *editable* mode:
+
+```bash
 $ pip install -e .
 ```
 
-The `-e` is `--editable` and the `.` is the path to the project
-folder that has the `setup.py` file (`.` means present working
-directory).
+- the `-e` is short for `--editable`
+- the `.` is the path to the project folder
+    - (`.` means present working directory)
+    - pip finds the `setup.py` file in the `pygs` project folder
+    - the project folder is the present working directory
 
-This is like `pip install`, but it places a symbolic link in the
-Python install folder instead of placing the actual project files
-in the Python install folder:
+This is like `pip install`, but it places a *symbolic link* in
+the Python install folder *instead of the actual project files*.
+
+Check this with `pip show` command:
 
 ```bash
-$ pip show PACKAGENAME
+$ pip show pygs
 ```
 
 See how the `Location` field shows the local repository path
 rather than the usual `site-packages` install path.
 
 This means that edits to the source code are immediately
-reflected in the behavior of the package, without having to
-reinstall.
+reflected on the next `import pygs`, without having to reinstall
+the package.
 
 # Clone repo and add foo/pygs to PYTHONPATH
 
