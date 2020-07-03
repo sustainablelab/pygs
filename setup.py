@@ -10,7 +10,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pygs", # no dashes in name!
-    version="0.0.2", # must increment this to re-upload
+    version="0.0.1", # must increment this to re-upload
     author="Mike Gazes",
     author_email="sustainablelab@gmail.com",
     description="PYGame Stuff for writing pygame applications",
