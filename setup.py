@@ -10,7 +10,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pygstuff", # do not use dashes or underscores in names!
-    version="0.0.1", # must increment this to re-upload
+    version="0.0.2", # must increment this to re-upload
     author="Mike Gazes",
     author_email="sustainablelab@gmail.com",
     description="PYGame Stuff for writing pygame applications",
@@ -28,7 +28,7 @@ setuptools.setup(
         "Topic :: Software Development :: User Interfaces",
         "Topic :: Software Development :: Libraries :: pygame",
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.7',
     install_requires=[
         "pygame",
         ],

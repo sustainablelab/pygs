@@ -142,16 +142,17 @@ _badwolf_rgb = (
     (136,99,63)
     )
 
+# namedtuple "defaults" keyword requires Python >= 3.7
 RGB = namedtuple(
-    'RGB',
-    _badwolf_names,
-    defaults=_badwolf_rgb
+    'RGB', # typename
+    _badwolf_names, # list of color names from badwolf
+    defaults=_badwolf_rgb # list of color values in RGB format
     )
 
 HEX = namedtuple(
-    'HEX',
-    _badwolf_names,
-    defaults=_badwolf_hex
+    'HEX', # typename
+    _badwolf_names, # list of color names from badwolf
+    defaults=_badwolf_hex # list of color values in hex format
     )
 
 if __name__ == '__main__':
