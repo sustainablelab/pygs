@@ -33,5 +33,5 @@ setuptools.setup(
         "pygame",
         ],
     license='MIT', # field in *.egg-info/PKG-INFO
-    platforms=['Windows'], # legacy field in *.egg-info/PKG-INFO
+    platforms=['Windows', 'Mac', 'Linux'], # legacy field in *.egg-info/PKG-INFO
 )

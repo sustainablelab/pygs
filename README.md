@@ -25,7 +25,77 @@ I am **very actively** adding to `pygstuff`. Check for changes:
 - or if installed, update to the latest with `pip install --upgrade pygstuff`
 
 # Platform compatibility
-Developed on Windows using Python3.8 and `pygame 1.9.6`.
+Developed on Windows using Python3.8 and `pygame 1.9.6`. Tested on Linux Mint 19.3.
+
+Windows runs pygame with no problem, but Linux Mint and Ubuntu
+distributions are usually missing SDL build dependencies and are
+therefore unable to run pygame out of the box. There are two
+steps to fix this.
+
+## Install SDL dependencies on Linux
+
+### Configure the source list
+
+First, if you have never built anything from source on your Linux
+system, you need to configure your package manager source list
+with `deb-src` URLs.
+
+The `sources.list` file usually has both `deb` URLs and `deb-src`
+URLs, but the `deb-src` ones are commented out. The package
+manager needs these sources for installing build dependencies.
+
+Open `/etc/apt/sources.list` and find the lines starting
+with `deb-src` that are commented out. Uncomment these lines.
+
+*sources.list is a protected file, so you will need to prefix
+your text editor command with `sudo`.*
+
+For example, my `/etc/apt/sources.list` has this line:
+
+```list
+# deb-src http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages
+```
+
+I remove the comment:
+
+```list
+deb-src http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages
+```
+
+### Update the package manager with the new sources
+
+Now do `apt update` or `apt-get update` to update the newly
+configured sources.
+
+```bash
+sudo apt update
+```
+
+### Install SDL dependencies
+
+Now install the SDL build dependencies:
+
+```bash
+sudo apt-get build-dep python-pygame
+```
+
+Note this does not install the python-pygame package, but
+installs the dependencies for that package, which is exactly
+what's needed to `pip install pygame`.
+
+### Build from source
+
+Unrelated to using `pygame` or `pygstuff`, your Debian system is
+now empowered to build other projects from source too:
+
+```bash
+sudo apt-get build-dep vim # powerful text editor
+sudo apt-get build-dep ardour # powerful audio recorder/editor
+```
+
+This only installs the necessary build dependencies. To actually
+install Vim or Ardour, clone the official repository and follow
+the instructions to run the configure and build scripts.
 
 # Installation
 
@@ -37,7 +107,9 @@ This installs the `wheel` ([built
 distribution](https://packaging.python.org/glossary/#term-built-distribution)).
 
 `pygstuff` requires `pygame`. If `pygame` is not installed, `pip
-install pygstuff` takes care of installing `pygame` as well.
+install pygstuff` takes care of installing `pygame` as well. If
+the installation fails on Linux because of missing SDL
+dependencies, see the previous section.
 
 See [AltInstallallation.md](AltInstallation.md) for developer installation
 ('--editable') or simply editing PYTHONPATH (no installation).
