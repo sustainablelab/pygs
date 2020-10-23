@@ -58,7 +58,8 @@ class Window(object):
         self.width = width
         self.height = height
         self.surface = pygame.display.set_mode(
-            size=(self.width, self.height),
+            # size=(self.width, self.height),
+            (self.width, self.height),
             # flags=0,
             # depth=0,
             # display=0,
